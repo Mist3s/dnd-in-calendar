@@ -101,12 +101,12 @@ export default class DndInCalendarExtension extends Extension {
         this._syncTimer();
     }
 
-    // The extension keeps running in the unlock-dialog session mode to turn
-    // Do Not Disturb off on time while the screen is locked: until then,
-    // notifications don't wake up the screen. It adds nothing to the lock
-    // screen and handles no keyboard events there, as the date menu with its
-    // controls is hidden.
     disable() {
+        // The extension keeps running in the unlock-dialog session mode to
+        // turn Do Not Disturb off on time while the screen is locked: until
+        // then, notifications don't wake up the screen. It adds nothing to the
+        // lock screen and handles no keyboard events there, as the date menu
+        // with its controls is hidden.
         getLoginManager().disconnectObject(this);
         this._settings.disconnectObject(this);
         this._notificationSettings.disconnectObject(this);
@@ -208,12 +208,11 @@ export default class DndInCalendarExtension extends Extension {
             child: new St.Icon({icon_name: 'preferences-system-time-symbolic'}),
             y_align: Clutter.ActorAlign.CENTER,
         });
-        this._timerButton.connect('clicked', () => {
+        this._timerButton.connectObject('clicked', () => {
             // Opened from the keyboard, continue in the list
             if (this._timerButton.checked && this._timerButton.has_key_focus())
                 this._durationsBox.get_first_child()?.grab_key_focus();
-        });
-        this._timerButton.connect('notify::checked', () => {
+        }, 'notify::checked', () => {
             // The durations take the place of "No Notifications". Hiding it
             // would hide Clear, as that follows its visibility.
             this._placeholder.opacity = this._timerButton.checked ? 0 : 255;
@@ -222,7 +221,7 @@ export default class DndInCalendarExtension extends Extension {
             if (!this._timerButton.checked && this._dateMenu.menu.isOpen &&
                 focus && this._durationsBox.contains(focus))
                 this._timerButton.grab_key_focus();
-        });
+        }, this);
 
         this._durationsBox = new St.BoxLayout({
             style_class: 'quick-toggle-menu dnd-in-calendar-durations',
@@ -252,11 +251,15 @@ export default class DndInCalendarExtension extends Extension {
 
     _removeControls() {
         this._dateMenu.menu.disconnectObject(this);
+        this._timerButton.disconnectObject(this);
         Gio.Settings.unbind(this._switch, 'state');
 
+        // Children before their parents, which would destroy them already
         this._durationsBox.destroy();
         this._timerButton.destroy();
+        this._switch.destroy();
         this._switchButton.destroy();
+        this._subtitle.destroy();
         this._labelBox.destroy();
         this._clearButton.x_align = this._clearButtonAlign;
         this._placeholder.opacity = 255;

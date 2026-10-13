@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnd-in-calendar 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/Mist3s/dnd-in-calendar/issues\n"
-"POT-Creation-Date: 2026-10-13 13:16+0200\n"
+"POT-Creation-Date: 2026-10-13 14:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,6 @@ msgstr ""
 msgid "Do Not Disturb for a While"
 msgstr ""
 
-#: src/extension.js:281
+#: src/extension.js:284
 msgid "Until I Turn It Off"
 msgstr ""
