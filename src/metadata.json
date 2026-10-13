@@ -1,0 +1,16 @@
+{
+  "uuid": "dnd-in-calendar@mist3s.github.io",
+  "name": "Do Not Disturb in Calendar",
+  "description": "Puts the Do Not Disturb switch back at the bottom of the date menu and shows its icon next to the clock, as in earlier GNOME versions. The toggle is removed from the quick settings.\n\nDo Not Disturb can also be turned on for a while: for 30 minutes, an hour, 8 hours or 2 days. It then turns itself off, even if the screen is locked.",
+  "shell-version": [
+    "50"
+  ],
+  "url": "https://github.com/Mist3s/dnd-in-calendar",
+  "version-name": "1.0",
+  "settings-schema": "org.gnome.shell.extensions.dnd-in-calendar",
+  "gettext-domain": "dnd-in-calendar",
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ]
+}

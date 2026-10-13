@@ -1,0 +1,26 @@
+/* Focus ring around the switch, like the .dnd-button of earlier GNOME versions */
+.dnd-in-calendar-switch {
+  border-radius: 999px;
+  border: 2px solid transparent;
+}
+
+.dnd-in-calendar-switch:focus {
+  border-color: st-transparentize(-st-accent-color, 0.3);
+}
+
+/* The timer button is as tall as the switch */
+.message-list .dnd-in-calendar-timer {
+  padding: 5px;
+}
+
+/* "Until 18:30" under the title */
+.dnd-in-calendar-subtitle {
+  font-weight: normal;
+  font-size: 0.818em;
+}
+
+/* Durations list, lined up with the footer of the message list */
+.message-list .dnd-in-calendar-durations {
+  margin: 6px 12px 0;
+  padding: 6px;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.dnd-in-calendar"
+          path="/org/gnome/shell/extensions/dnd-in-calendar/">
+    <key name="dnd-until" type="x">
+      <default>0</default>
+      <summary>When Do Not Disturb turns off</summary>
+      <description>
+        Unix time in seconds at which Do Not Disturb is turned off
+        automatically. 0 means that it stays on until turned off by hand.
+      </description>
+    </key>
+    <key name="durations" type="ai">
+      <default>[30, 60, 480, 2880]</default>
+      <summary>Durations offered for Do Not Disturb</summary>
+      <description>
+        Durations in minutes that the date menu offers for turning on
+        Do Not Disturb for a while.
+      </description>
+    </key>
+  </schema>
+</schemalist>
